@@ -6,10 +6,21 @@ const props = defineProps<{
   src?: string
   alt?: string
   fallback?: string
+  name?: string
   size?: "sm" | "default" | "lg" | "xl"
   ring?: "none" | "accent" | "border"
   class?: string
 }>()
+
+const initials = computed(() => {
+  if (props.fallback) return props.fallback
+  if (!props.name) return ""
+  return props.name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? "")
+    .join("")
+})
 
 const sizeClasses = {
   sm: "size-8 text-xs",
@@ -42,6 +53,6 @@ const classes = computed(() =>
       :alt="alt ?? ''"
       class="size-full object-cover"
     />
-    <span v-else>{{ fallback }}</span>
+    <span v-else>{{ initials }}</span>
   </span>
 </template>

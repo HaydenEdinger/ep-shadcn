@@ -41,7 +41,6 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>
 <script setup lang="ts">
 import { computed } from "vue"
 import { cn } from "@/lib/utils"
-import type { ButtonVariants } from "./Button.vue"
 
 const props = withDefaults(
   defineProps<{

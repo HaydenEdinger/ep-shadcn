@@ -7,10 +7,12 @@ export const badgeVariants = cva(
     variants: {
       variant: {
         default: "bg-secondary text-secondary-foreground",
+        secondary: "bg-muted text-muted-foreground",
         accent: "bg-accent text-accent-foreground",
         dark: "bg-foreground text-background",
         outline: "border border-border text-foreground",
         success: "bg-success/15 text-success",
+        warning: "bg-warning/15 text-warning",
         destructive: "bg-destructive/15 text-destructive",
       },
       size: {
@@ -32,7 +34,6 @@ export type BadgeVariants = VariantProps<typeof badgeVariants>
 <script setup lang="ts">
 import { computed } from "vue"
 import { cn } from "@/lib/utils"
-import type { BadgeVariants } from "./Badge.vue"
 
 const props = defineProps<{
   variant?: BadgeVariants["variant"]
