@@ -29,7 +29,6 @@ export type CardVariants = VariantProps<typeof cardVariants>
 <script setup lang="ts">
 import { computed } from "vue"
 import { cn } from "@/lib/utils"
-import type { CardVariants } from "./Card.vue"
 
 const props = defineProps<{
   variant?: CardVariants["variant"]
